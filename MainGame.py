@@ -5,7 +5,7 @@ print(welcome('Guy'))
 
 flag = 'y'
 while flag == str('y'):
-    arameters = load_game()
+    parameters = load_game()
 
     try:
         while True:
