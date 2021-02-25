@@ -9,7 +9,7 @@ import json
 
 def get_money_interval(difficulty,amount):
     def get_currency() :  #function gets currency from fixer api
-        url = "http://data.fixer.io/api/latest?access_key=a0acec42aa450def2898a65959bfbb13"
+        url = "http://data.fixer.io/api/latest?access_key=a0acec42aa450def2898a65959bfbb13" # want a challenge? make sure the secret is not stored in the code. in general this is big no no in real life 
 
         payload = {}
         headers = {'Cookie': '__cfduid=df7f1dca850e801bd0e6db4c6e4978fe31613740352'}
