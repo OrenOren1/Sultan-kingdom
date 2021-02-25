@@ -35,7 +35,8 @@ def compare_results (bet, secret):
 
 def play_game(level):
     print("welcome to Guess Game - ")
-    error = True
+    error = True 
+    # what if additional 100 levels will be added? make more generic solution
     if level == 1:
         difficulty = 20
     elif level == 2:
