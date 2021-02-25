@@ -11,10 +11,11 @@ def load_game():
     """
             Currency Roulette - try and guess the value of a random amount of USD in ILS
     """
-    flag = bool(False)
+    flag = bool(False) # flag = False is enough. False is already a bool
 
-    while not flag:
+    while not flag: # better condition name can be given for readability
             try:
+                # fix this, developing by exceptions is not good practice. just get the input and check if it a digit or not
                 choose_game = int(input(print("Please choose a game to play:\n\n1. Memory Game - a sequence of numbers will appear for 1 second and you have to guess it back\n2. Guess Game - guess a number and see if you chose like the computer\n3. Currency Roulette - try and guess the value of a random amount of USD in ILS")))
 
                 if 0 < choose_game < 4:
