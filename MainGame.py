@@ -1,7 +1,7 @@
 from Live import load_game, welcome
 
 
-print(welcome('Guy'))
+print(welcome('Maor'))
 
 ask = True
 while ask:
