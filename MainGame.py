@@ -1,7 +1,7 @@
 from Live import load_game, welcome
 
 
-print(welcome('Guy'))
+print(welcome('Maor'))
 
 flag = 'y'
 while flag == str('y'):
