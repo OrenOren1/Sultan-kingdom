@@ -35,18 +35,19 @@ def compare_results (bet, secret):
 
 def play_game(level):
     print("welcome to Guess Game - ")
-    error = True 
-    # what if additional 100 levels will be added? make more generic solution
+    error = True
+    levels=int(100)
+    # what if additional 100 levels will be added? make more generic solution-done
     if level == 1:
-        difficulty = 20
+        difficulty = levels/5
     elif level == 2:
-        difficulty = 40
+        difficulty = levels/4
     elif level == 3:
-        difficulty = 60
+        difficulty = levels/3
     elif level == 4:
-        difficulty = 80
+        difficulty = levels/2
     elif level == 5:
-        difficulty = 99
+        difficulty = levels
 
 
     secret = int(generate_number(difficulty))
@@ -56,13 +57,15 @@ def play_game(level):
         print (f"the number is  {secret} nice job!! ")
     else :
         print(f"the number is  {secret} maybe next time!! ")
-    print(trofyis)
 
+
+#manual playing
 """
 difficulty=2 #manual playing
 flag = 'y'
+
 while flag == str('y'):
-    play_game()
+    play_game(2)
 
     try:
         while True:
@@ -77,4 +80,5 @@ while flag == str('y'):
         print('not valid')
 
         flag = 'y'
-print('thank you for playing!')"""
+print('thank you for playing!')
+"""

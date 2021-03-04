@@ -17,7 +17,7 @@ def get_money_interval(difficulty,amount):
         response = requests.request("GET", url, headers=headers, data=payload)
         package_json = response.json()
 
-        a=round(package_json['rates']['ILS'],2)
+        a=round(package_json['rates']['ILS'], 2)
         return a
 
 
@@ -40,6 +40,7 @@ def get_guess_from_user(amount):
             print("cannot enter str or null\n")
 
     return uguess
+
 
 def play_game(difficulty):
 
@@ -64,7 +65,8 @@ def play_game(difficulty):
     else:
         print("you lost ,try again!!")
 
-if __name__ == "__main__":
+"""
+if __name__ == "__main__" :
     difficulty = 3
     flag = 'y'
     while flag == str('y'):
@@ -83,3 +85,4 @@ if __name__ == "__main__":
 
             flag = 'y'
     print('thank you for playing!')
+"""

@@ -3,21 +3,32 @@ from Live import load_game, welcome
 
 print(welcome('Guy'))
 
-flag = 'y'
-while flag == str('y'):
+ask = True
+while ask:
+    answer = False
     parameters = load_game()
 
-    try:
-        while True:
-            flag = str(input(print("do you want to play again ? y\\n")))  # all inputs are already str, no need to cast it. no need to print too. just in=input("what is your name")
 
-            if flag == str('n'): # want a challenge? make it support yes no aswell
+    while not answer:
+        try:
+            answer = input(print("do you want to play again ? y\\n"))  # all inputs are already str, no need to cast it. no need to print too. just in=input("what is your name")-done
+            if answer is False :
+                raise ValueError
+            if answer is ('n' or 'no'): # want a challenge? make it support yes no aswell-done
                 break
-            elif flag == str('y'):
+            if  answer == 'yes' or 'Yes' or 'y':
+                answer = False
+                ask = True
                 break
-    except ValueError :
-        print('not valid')
+            if answer is str('y'):
 
-        flag = 'y'
+                print("awesome!! lest play")
+            if answer is not (str('yes'),str('no'),str('y'),str('n')):
+                raise ValueError
 
-print(f"thank for playing with us!")
+        except ValueError :
+            print('not valid')
+            answer=False
+    if answer is ('n' or 'no'):
+        ask=False
+        print(f"thank for playing with us!")
