@@ -5,7 +5,7 @@ from subprocess import call
 import time
 import sys
 
-#difficulty=2
+#difficulty=2 #manual playing
 def clear():
     # check and make call for specific operating system
     _ = system('clear')
@@ -28,20 +28,22 @@ def get_list_from_user(difficulty):
             return True
 
     UserListOfInt = [False] * int(difficulty) #create array
-
-    for num in range(difficulty):
+    num=0
+    while UserListOfInt[num] is False and num<difficulty:
         try:
-            UserListOfInt[num] = int(
-                input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
+            UserListOfInt[num] = int(input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
 
             while not check_int(UserListOfInt[num]):
                 print('guess is out of range')
-                UserListOfInt[num] = int(
-                    input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
-
+                UserListOfInt[num] = int(input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
+            if check_int(UserListOfInt[num]):
+                num += 1
+            if num ==difficulty:
+                break
         except ValueError:
-            num -= 1
+
             print("str of null entered  please try again")
+            UserListOfInt[num]=False
 
     return UserListOfInt
 
@@ -62,29 +64,29 @@ def play_game(difficulty):
     sys.stdout.flush()
 
     guess = get_list_from_user(difficulty)
-    count=0
-    CheckWin=0
+    count = 0
+    CheckWin = 0
     for check in random:
-        count=0
+        count = 0
         for check2 in guess :
 
             if (int(check)/int(check2)==1):
-                count =+1
-        CheckWin=CheckWin+count
+                count += 1
+        CheckWin = CheckWin+count
 
 
     print (f"Master combination- {random}\n")
     print(f"your guess combination- {guess}\n")
 
-    if count== difficulty:
+    if CheckWin == difficulty:
         print ("incredible guess !! you won ")
     else:
         print(f"you have guessed {CheckWin} numbers- you lost ")
 
 
-"""
 
-flag = 'y'
+
+"""flag = 'y
 while flag == str('y'):
     play_game(difficulty)
 
