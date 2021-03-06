@@ -13,7 +13,7 @@ while True:
 
             Fl = again[0].lower()
 
-            if again is not Fl in ['yesno']:  # want a challenge? make it support yes no aswell
+            if again is not Fl in ['yesno']:  # want a challenge? make it support yes no aswell-done
                 print('Please answer with yes or no!')
             elif again == 'no' or again == 'n':
                 again = 'n'
