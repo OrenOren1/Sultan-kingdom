@@ -63,7 +63,7 @@ def play_game(difficulty):
         print("you won!!")
     else:
         print("you lost ,try again!!")
-
+"""
 if __name__ == "__main__":
     difficulty = 3
     flag = 'y'
@@ -83,3 +83,4 @@ if __name__ == "__main__":
 
             flag = 'y'
     print('thank you for playing!')
+"""

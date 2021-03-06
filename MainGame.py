@@ -1,23 +1,37 @@
 from Live import load_game, welcome
 
 
-print(welcome('Maor'))
+print(welcome('Guy'))
 
-flag = 'y'
-while flag == str('y'):
-    parameters = load_game()
+again = False
+while True:
 
-    try:
-        while True:
-            flag = str(input(print("do you want to play again ? y\\n")))  # all inputs are already str, no need to cast it. no need to print too. just in=input("what is your name")
+    parameters = 1
+    while True:
+        try:
+            again = input("do you want to play again ? y\\n")
 
-            if flag == str('n'): # want a challenge? make it support yes no aswell
+            Fl = again[0].lower()
+
+            if again is not Fl in ['yesno']:  # want a challenge? make it support yes no aswell
+                print('Please answer with yes or no!')
+            elif again == 'no' or again == 'n':
+                again = 'n'
                 break
-            elif flag == str('y'):
+            elif again == 'y' or again == 'yes':
+                again = 'y'
                 break
-    except ValueError :
-        print('not valid')
+        except IndexError:
+            print("invalid choice")
+    if again == 'n':
+        print('thank you for playing!')
+        break
 
-        flag = 'y'
-
-print(f"thank for playing with us!")
+"""
+while True:
+     query = input('Do you love cute owls?')
+     Fl = query[0].lower()
+     if query == '' or not Fl in ['y','n']:
+        print('Please answer with yes or no!')
+     else:
+        break"""

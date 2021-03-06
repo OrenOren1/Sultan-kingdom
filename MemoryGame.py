@@ -5,7 +5,7 @@ from subprocess import call
 import time
 import sys
 
-#difficulty=2
+#difficulty=5 # manual Playing 1/2
 def clear():
     # check and make call for specific operating system
     _ = system('clear')
@@ -16,40 +16,48 @@ def generate_sequence(difficulty):
     RandomListOfIntegers = [random.randint(Start, Stop) for iter in range(difficulty)]
     return RandomListOfIntegers
 
-def get_list_from_user(difficulty):
+
+def get_list_from_user (difficulty):
     start = 1
     stop = 101
-    UserListOfInt = []
+    user_list_of_int = [False] * int(difficulty)  # create array
 
     def check_int(check):
-        if ((check == 0) or (check > 101)):
+        if check == 0 or check > 101:
             return False
         else:
             return True
 
-    UserListOfInt = [False] * int(difficulty) #create array
+    user_list_of_int = [False] * int(difficulty) #create array
+    num = 0
+    fill_array = False
+    while not fill_array:
+        check_str = False
+        while not check_str :
+            user_list_of_int[num] = input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})"))
+            if user_list_of_int[num] == '':
+                print("str of null entered  please try again")
+            elif not user_list_of_int[num].isdigit():
+                print("str of null entered  please try again")
+            else:
+                check_str = True
 
-    for num in range(difficulty):
-        try:
-            UserListOfInt[num] = int(
-                input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
+        if not check_int(int(user_list_of_int[num])):
+            print('guess is out of range')
 
-            while not check_int(UserListOfInt[num]):
-                print('guess is out of range')
-                UserListOfInt[num] = int(
-                    input(print(f"please enter your guess between 1-101: ({num + 1}/{difficulty})")))
+        else:
+            if num < difficulty-1:
+                num += 1
+            else:
+                fill_array = True
 
-        except ValueError:
-            num -= 1
-            print("str of null entered  please try again")
-
-    return UserListOfInt
+    return user_list_of_int
 
 
 def play_game(difficulty):
 
     print (f"\nwelcome to Memory Game - your job is to geuss the Master {difficulty} numbers\n " )
-    random = generate_sequence(difficulty)
+    random = generate_sequence(int(difficulty))
     flag=False
     while flag==False:
         flag=input(print("press any key to start"))
@@ -68,23 +76,23 @@ def play_game(difficulty):
         count=0
         for check2 in guess :
 
-            if (int(check)/int(check2)==1):
-                count =+1
+            if (int(check)==int(check2)):
+                count =+ 1
         CheckWin=CheckWin+count
 
 
     print (f"Master combination- {random}\n")
     print(f"your guess combination- {guess}\n")
 
-    if count== difficulty:
+    if CheckWin== difficulty:
         print ("incredible guess !! you won ")
     else:
         print(f"you have guessed {CheckWin} numbers- you lost ")
 
 
-"""
 
-flag = 'y'
+
+"""flag = 'y' #manual playing 2/2
 while flag == str('y'):
     play_game(difficulty)
 
