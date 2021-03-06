@@ -35,18 +35,19 @@ def compare_results (bet, secret):
 
 def play_game(level):
     print("welcome to Guess Game - ")
+    span=100
     error = True 
-    # what if additional 100 levels will be added? make more generic solution
+    # what if additional 100 levels will be added? make more generic solution-done
     if level == 1:
-        difficulty = 20
+        difficulty = span/5
     elif level == 2:
-        difficulty = 40
+        difficulty = 2*span/5
     elif level == 3:
-        difficulty = 60
+        difficulty = 3*span/5
     elif level == 4:
-        difficulty = 80
+        difficulty = 4*span/5
     elif level == 5:
-        difficulty = 99
+        difficulty = span
 
 
     secret = int(generate_number(difficulty))
