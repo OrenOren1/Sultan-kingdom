@@ -6,7 +6,7 @@ print(welcome('Guy'))
 again = False
 while True:
 
-    parameters = 1
+    parameters = load_game()
     while True:
         try:
             again = input("do you want to play again ? y\\n")
