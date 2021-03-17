@@ -27,7 +27,7 @@ def get_guess_from_user (difficulty):
 
 
 def compare_results (bet, secret):
-    if bet==secret:
+    if bet == secret:
         return True
     else:
         return False
@@ -35,7 +35,7 @@ def compare_results (bet, secret):
 
 def play_game(level):
     print("welcome to Guess Game - ")
-    span=100
+    span = 100
     error = True 
     # what if additional 100 levels will be added? make more generic solution-done
     if level == 1:
