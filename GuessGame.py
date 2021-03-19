@@ -1,5 +1,7 @@
 import random
 
+import utils
+
 
 def generate_number (difficulty):
 
@@ -34,6 +36,8 @@ def compare_results (bet, secret):
 
 
 def play_game(level):
+
+    utils.screen_cleaner()
     print("welcome to Guess Game - ")
     span = 100
     error = True 
@@ -49,21 +53,23 @@ def play_game(level):
     elif level == 5:
         difficulty = span
 
-
     secret = int(generate_number(difficulty))
     bet = int(get_guess_from_user(difficulty))
-    trofyis = compare_results(secret, bet)
-    if trofyis:
-        print (f"the number is  {secret} nice job!! ")
-    else :
+    trofies = compare_results(secret, bet)
+    if trofies:
+        print(f"the number is  {secret} nice job!! ")
+        win = True
+    else:
         print(f"the number is  {secret} maybe next time!! ")
-    print(trofyis)
+        win = False
+    print(trofies)
+    return win
 
-"""
-difficulty=2 #manual playing
+
+"""difficulty=2 #manual playing
 flag = 'y'
 while flag == str('y'):
-    play_game()
+    play_game(difficulty)
 
     try:
         while True:
@@ -78,4 +84,5 @@ while flag == str('y'):
         print('not valid')
 
         flag = 'y'
-print('thank you for playing!')"""
+print('thank you for playing!')
+"""

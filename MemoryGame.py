@@ -6,6 +6,9 @@ import time
 import sys
 
 #difficulty=5 # manual Playing 1/2
+import utils
+
+
 def clear():
     # check and make call for specific operating system
     _ = system('clear')
@@ -56,6 +59,7 @@ def get_list_from_user (difficulty):
 
 def play_game(difficulty):
 
+    utils.screen_cleaner()
     print (f"\nwelcome to Memory Game - your job is to geuss the Master {difficulty} numbers\n " )
     random = generate_sequence(int(difficulty))
     flag=False
@@ -84,11 +88,14 @@ def play_game(difficulty):
     print (f"Master combination- {random}\n")
     print(f"your guess combination- {guess}\n")
 
-    if CheckWin== difficulty:
+    if CheckWin == difficulty:
         print ("incredible guess !! you won ")
+        win = True
     else:
         print(f"you have guessed {CheckWin} numbers- you lost ")
+        win = False
 
+    return win
 
 
 
