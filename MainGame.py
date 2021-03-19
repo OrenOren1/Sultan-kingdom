@@ -7,6 +7,7 @@ again = False
 while True:
 
     parameters = load_game()
+
     while True:
         try:
             again = input("do you want to play again ? y\\n")
