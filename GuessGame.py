@@ -16,8 +16,10 @@ def get_guess_from_user (difficulty):
             bet = int(input(print(f"please place your bet: 0 to {difficulty}")))
 
             if (bet > 0) and (bet < (difficulty+1)):# check if in range
+            if (bet > 0) and (bet < (difficulty+1)):  #  check if in range
 
                 return bet               #getting a guess number from user
+                return bet               # getting a guess number from user
             else:
                 print ("bad choice ")
                 error = True
