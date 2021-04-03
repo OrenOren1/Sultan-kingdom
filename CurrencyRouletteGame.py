@@ -17,11 +17,7 @@ def get_money_interval(difficulty,amount):
         response = requests.request("GET", url, headers=headers, data=payload)
         package_json = response.json()
 
-<<<<<<< HEAD
-        a=round(package_json['rates']['ILS'], 2)
-=======
         a = round(package_json['rates']['ILS'], 2)
->>>>>>> review-fixes
         return a
 
     currency = get_currency()
@@ -74,11 +70,7 @@ def play_game(difficulty):
 
 
 """
-<<<<<<< HEAD
-if __name__ == "__main__" :
-=======
 if __name__ == "__main__":
->>>>>>> review-fixes
     difficulty = 3
     flag = 'y'
     while flag == str('y'):
