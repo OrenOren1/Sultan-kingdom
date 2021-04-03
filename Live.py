@@ -3,12 +3,14 @@ import GuessGame
 import CurrencyRouletteGame
 import scores
 
+
 def welcome (name):
 
-    print(f'Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.')
+    print("Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.")
 
 
 def load_game():
+
     POINTS_OF_WINNING = int(0)
     """
             Currency Roulette - try and guess the value of a random amount of USD in ILS
