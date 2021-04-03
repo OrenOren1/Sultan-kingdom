@@ -5,8 +5,12 @@ from subprocess import call
 import time
 import sys
 
+<<<<<<< Updated upstream
 #difficulty=5 # manual Playing 1/2
 import utils
+=======
+# difficulty=5 # manual Playing 1/2
+>>>>>>> Stashed changes
 
 
 def clear():
@@ -61,12 +65,21 @@ def get_list_from_user(difficulty):
 
 def play_game(difficulty):
 
+<<<<<<< Updated upstream
     utils.screen_cleaner()
     print(f"\nwelcome to Memory Game - your job is to geuss the Master {difficulty} numbers\n " )
     random = generate_sequence(int(difficulty))
     flag = False
     while flag is False:
         flag = input(print("press any key to start"))
+=======
+    print(f"\nwelcome to Memory Game - your job is to geuss the Master {difficulty} numbers\n ")
+    random = generate_sequence(int(difficulty))
+    flag = False
+    while flag is False:
+        flag=input(print("press any key to start"))
+
+>>>>>>> Stashed changes
 
     sys.stdout.write(f"and the numbers are : {random}")
     time.sleep(0.7)
