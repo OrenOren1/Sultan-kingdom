@@ -1,15 +1,15 @@
 import random
+
 import numpy as np
-import decimal
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
 import requests
-import json
+
+import utils
 
 
 def get_money_interval(difficulty,amount):
-    def get_currency() :  #function gets currency from fixer api
-        url = "http://data.fixer.io/api/latest?access_key=a0acec42aa450def2898a65959bfbb13" # want a challenge? make sure the secret is not stored in the code. in general this is big no no in real life 
+    def get_currency():   # function gets currency from fixer api
+        url = "http://data.fixer.io/api/latest?access_key=a0acec42aa450def2898a65959bfbb13"  # want a challenge? make
+        # sure the secret is not stored in the code. in general this is big no no in real life
 
         payload = {}
         headers = {'Cookie': '__cfduid=df7f1dca850e801bd0e6db4c6e4978fe31613740352'}
@@ -17,12 +17,15 @@ def get_money_interval(difficulty,amount):
         response = requests.request("GET", url, headers=headers, data=payload)
         package_json = response.json()
 
+<<<<<<< HEAD
         a=round(package_json['rates']['ILS'], 2)
+=======
+        a = round(package_json['rates']['ILS'], 2)
+>>>>>>> review-fixes
         return a
 
-
-    currency=get_currency()
-    money=amount*currency
+    currency = get_currency()
+    money = amount*currency
     start = int(amount*currency - (5 - difficulty))
     stop = int(amount*currency + (5 - difficulty))
 
@@ -30,7 +33,7 @@ def get_money_interval(difficulty,amount):
 
 
 def get_guess_from_user(amount):
-    uguess=False
+    uguess = False
     while not uguess:
         try:
             uguess = int(input(print(f"please guess how much ILS is {int(amount)} USD\n")))
@@ -44,10 +47,11 @@ def get_guess_from_user(amount):
 
 def play_game(difficulty):
 
-    result=0
+    utils.screen_cleaner()
+    result = 0
     print("welcome to currency guess game")
     amount = float(random.randint(1, 100))
-    interval=get_money_interval(difficulty,amount)
+    interval = get_money_interval(difficulty,amount)
 
     guess = get_guess_from_user(amount)
 
@@ -56,17 +60,25 @@ def play_game(difficulty):
 
     if np.float16(guess) in np.float16(np.arange(interval[1],interval[2],0.1)):
         result = True
+        win = True
     else:
         result = False
-
-    if result :
+        win = False
+    if result:
 
         print("you won!!")
+
     else:
         print("you lost ,try again!!")
+    return win
+
 
 """
+<<<<<<< HEAD
 if __name__ == "__main__" :
+=======
+if __name__ == "__main__":
+>>>>>>> review-fixes
     difficulty = 3
     flag = 'y'
     while flag == str('y'):
