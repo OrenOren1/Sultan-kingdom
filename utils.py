@@ -2,11 +2,11 @@ from os import system, name
 import os
     # import sleep to show output for some time period
 from time import sleep
-SCORES_FILE_NAME='scores.txt'
-BAD_RETURN_CODE=1
+SCORES_FILE_NAME = 'scores.txt'
+BAD_RETURN_CODE = 1
 
-def screen_cleaner ():
 
+def screen_cleaner():
 
     # define our clear function
 

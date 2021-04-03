@@ -1,10 +1,7 @@
 import random
+
 import numpy as np
-import decimal
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-import requests
-import json
+#import requests
 
 import utils
 
