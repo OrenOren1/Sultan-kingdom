@@ -1,7 +1,7 @@
 import random
 
 import numpy as np
-#import requests
+import requests
 
 import utils
 

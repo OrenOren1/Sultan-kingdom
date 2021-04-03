@@ -364,6 +364,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.scores.html" />
       <item itemvalue="Python.scores" />
       <item itemvalue="Python.MainScores (1)" />
       <item itemvalue="Python.MainGame" />
@@ -371,7 +372,6 @@
       <item itemvalue="Python.app" />
       <item itemvalue="Python.MailnScore" />
       <item itemvalue="Python.MainScore" />
-      <item itemvalue="JavaScript Debug.scores.html" />
     </list>
     <recent_temporary>
       <list>
