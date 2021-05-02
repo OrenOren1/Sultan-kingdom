@@ -14,4 +14,3 @@ def home():
         return render_template('error.html')
 
 app.run()
-        
