@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: score-service
+spec:
+  clusterIP: 10.107.22.226
+  clusterIPs:
+  - 10.107.22.226
+  externalIPs: 
+    - 10.0.0.40
+  externalTrafficPolicy: Cluster
+  selector:
+    app: flask-test-app
+  ports:
+    - name: http
+      protocol: "TCP"
+      port: 9092
+      targetPort: 
+  type: NodePort
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: score-deploy
+  name: score-deploy
+spec:
+  selector:
+    matchLabels:
+      app: flask-test-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: flask-test-app
+    spec:
+      containers:
+      - name: scorebackend
+        image: orensito1/scorebackend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9092
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 9092
+            httpHeaders:
+            - name: user-agent
+              value: KubeHealthChecker
+          initialDelaySeconds: 5
+          failureThreshold: 1
+          periodSeconds: 15
+      restartPolicy: Always
+status: {}
+
