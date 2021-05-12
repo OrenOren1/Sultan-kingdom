@@ -10,4 +10,6 @@ RUN /usr/local/bin/python -m pip install --upgrade pip &pip install -r requireme
 
 EXPOSE 5000
 
-CMD [ "python", "./MainScore.py" ]
+ENTRYPOINT ["python"]
+
+CMD [ "./MainScore.py" ]

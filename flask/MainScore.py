@@ -8,11 +8,11 @@ app = Flask(__name__)
 client = MongoClient("mongo:27017")
 
 @app.route('/')
-def home():
-    if os.path.exists("../flask/scores.txt") and (os.path.getsize("../flask/scores.txt") != 0):
-        with open('../flask/scores.txt', 'r') as f:
+def todo():
+    if os.path.exists("scores.txt") and (os.path.getsize("scores.txt") != 0):
+        with open('scores.txt', 'r') as f:
             return render_template('score.html', score=f.read())
-    elif os.path.exists("/src/scores.txt") and (os.path.getsize("/src/scores.txt") != 0):
+    elif os.path.exists("scores.txt") and (os.path.getsize("/src/scores.txt") != 0):
          with open('scores.txt', 'r') as f:
             return render_template('score.html', score=f.read()) 
     else:
