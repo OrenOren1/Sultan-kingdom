@@ -6,8 +6,6 @@ spec:
   clusterIP: 10.107.22.226
   clusterIPs:
   - 10.107.22.226
-  externalIPs: 
-    - 10.0.0.40
   externalTrafficPolicy: Cluster
   selector:
     app: flask-test-app

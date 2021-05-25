@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+spec:
+  selector:
+    matchLabels:
+      run: my-nginx
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: my-nginx
+    spec:
+      containers:
+      - name: nginx-webserver
+        image: orensito1/nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx # mount nginx-conf volumn to /etc/nginx
+          readOnly: true
+          name: nginx-config
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config # place ConfigMap `nginx-conf` on /etc/nginx
+          items:
+            - key: nginx.config
+              path: nginx.config
+      - env:
+        - name : FLASK_SERVER_ADDR
+          value: "backend:9092"
+      restartPolicy: Always
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+status: {}
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-05-11T13:44:07Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-05-11T13:44:07Z"
+  name: nginxsvc
+  namespace: default
+  resourceVersion: "13563"
+  uid: 95147e05-42f0-4172-9b7b-806505e79563
+spec:
+  clusterIP: 10.107.22.225
+  clusterIPs:
+  - 10.107.22.225
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31001
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: my-nginx
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
