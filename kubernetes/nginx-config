@@ -5,7 +5,7 @@ metadata:
 data:
   nginx.conf: |
     user nginx;
-    worker_processes  1;
+    worker_processes  auto;
     events {
       worker_connections  10240;
     }

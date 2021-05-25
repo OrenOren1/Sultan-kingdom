@@ -14,7 +14,7 @@ spec:
       protocol: "TCP"
       port: 9092
       targetPort: 
-  type: NodePort
+  type: LoadBalancer
 
 ---
 apiVersion: apps/v1
