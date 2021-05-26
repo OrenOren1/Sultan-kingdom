@@ -16,7 +16,7 @@ git clone https://github.com/OrenOren1/Sultan-kingdom.git
 ## environvents parameters
 
 ```
-phython3.9 with the following libaries detailed on dependecies.txt
+phython3.9 with the following libaries detailed on requierments.txt
 ```
 ## running World of Games
 
